@@ -1,0 +1,35 @@
+{
+  "name": "special-adventure",
+  "version": "1.0.0",
+  "description": "Custom URL Shortener",
+  "main": "index.js",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express-rate-limit": "^5.1.3",
+    "express": "^4.17.1",
+    "express-slow-down": "^1.3.1",
+    "helmet": "^3.23.3",
+    "monk": "^7.3.0",
+    "morgan": "^1.10.0",
+    "nanoid": "^3.1.10",
+    "nodemon": "^2.0.4",
+    "yup": "^0.29.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DRCodeBase/special-adventure.git"
+  },
+  "keywords": [
+    "URL"
+  ],
+  "author": "DRCodeBase",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DRCodeBase/special-adventure/issues"
+  },
+  "homepage": "https://github.com/DRCodeBase/special-adventure#readme"
+}
