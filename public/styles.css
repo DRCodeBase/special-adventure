@@ -1,0 +1,16 @@
+body {
+    background-color: #395A5A !important;
+}
+
+nav {
+    background-color: #052929;
+    color: #fff
+}
+
+label {
+    color: #fff;
+}
+
+textarea {
+    resize: none;
+}

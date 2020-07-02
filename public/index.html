@@ -5,20 +5,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DRCodeBase</title>
+    <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 
 <body>
     <div id="app">
-        <form class="form" v-if="visible" @submit.prevent="shortenUrl()">
-            <div v-if="errorMsg">{{errorMsg}}</div>
-            <input class="input" type="text" v-model="url" name="url" id="url" placeholder="enter a url">
-            <input class="input" type="text" v-model="path" name="path" id="path" placeholder="enter a path">
-            <button type="submit">create</button>
-        </form>
-        <div v-if="updatedUrl">
-            <p>Your shorten url is: <a :href="updatedUrl">{{updatedUrl}}</a></p>
+
+        <!-- Navbar -->
+        <nav class="navbar">
+            <a class="navbar-brand">URL Shortener</a>
+        </nav>
+
+        <!-- Form inputs-->
+        <div class="container mx-auto p-5">
+
+            <form @submit.prevent="shortenUrl()">
+
+                <!-- URL -->
+                <div class="form-group row">
+                    <label for="url" class="col-sm-1 col-form-label"><b>URL</b></label>
+                    <div class="col-sm-11">
+                        <textarea class="w-100" type="text" v-model="url" name="url" id="url" placeholder="enter a url"
+                            maxlength="500"></textarea>
+                    </div>
+                </div>
+
+                <!-- Path -->
+                <div class="form-group row">
+                    <label for="path" class="col-sm-1 col-form-label"><b>Path</b></label>
+                    <div class="col-sm-11">
+                        <input class="w-100" type="text" v-model="path" name="path" id="path" placeholder="enter a path"
+                            maxlength="250">
+                    </div>
+                </div>
+
+                <!-- Current URL -->
+                <div class="form-group row">
+                    <div class="mx-auto alert alert-info w-100 text-center text-break text-lowercase">
+                        {{"http://drcodebase.com/" + path.toLowerCase()}}</div>
+                </div>
+
+                <!-- Error Message -->
+                <div v-if="errorMsg" class="form-group row">
+                    <div class="mx-auto alert alert-danger text-center w-100">{{errorMsg}}</div>
+                </div>
+
+                <!-- Success Message -->
+                <div v-if="!errorMsg && updatedUrl" class="form-group row">
+                    <div class="mx-auto alert alert-success text-center w-100">Shorten URL created!</div>
+                </div>
+
+                <!-- Create Button -->
+                <div class="form-group row">
+                    <button type="submit" class="btn btn-dark w-100">Create</button>
+                </div>
+
+            </form>
+
         </div>
+
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
