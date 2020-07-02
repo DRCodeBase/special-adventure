@@ -92,7 +92,7 @@ app.post('/url', slowDown({
     } else {
       const pathExists = await urls.findOne({ path });
       if (pathExists) {
-        throw new Error(`Current path=[${path}] already exists.`);
+        throw new Error(`Current path '${path}' already exists.`);
       }
     }
 

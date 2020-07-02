@@ -6,7 +6,6 @@ const app = new Vue({
     url: '',
     path: '',
     errorMsg: '',
-    visible: true,
     updatedUrl: null,
   },
   methods: {
@@ -27,13 +26,14 @@ const app = new Vue({
       // Handle response.
       if (res.ok) {
         await res.json();
-        this.visible = false;
-        this.updatedUrl = `https://drcodebase.com/${this.path}`;
+        this.updatedUrl = `https://drcodebase.com/${this.path.toLowerCase()}`;
       } else if (res.status === 429) {
         this.errorMsg = 'You have sent to many requests, please try again in 30 seconds.';
       } else {
         const result = await res.json();
         this.errorMsg = result.message;
+        this.url = '';
+        this.path = '';
       }
 
     },
